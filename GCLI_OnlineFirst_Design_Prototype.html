@@ -230,12 +230,12 @@
 
   <main id="top">
     <section class="hero" aria-label="GCLI announcements" aria-roledescription="carousel">
-      <div class="hero-track" id="hero-track">
-      <article class="hero-slide is-active" data-slide="0" aria-hidden="false">
+      <div class="hero-track" id="hero-track" style="transform: translateX(-33.333333%);">
+      <article class="hero-slide" data-slide="0" aria-hidden="true">
         <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">Global Collaborative Learning Initiative</p><h1>Active learning across borders, online.</h1><p>GCLI gives students and educators a place to investigate, create, present, discuss, and reflect with peers in other parts of the world.</p><div class="button-row"><a class="button coral" href="#oisc">Discover OISC</a><a class="button secondary" href="#oise">Discover OISE</a></div></div></div>
         <div class="hero-visual" role="img" aria-label="Students and educators collaborating online"><div class="visual-note"><strong>Online by design</strong><span>Collaboration that works across distance, academic calendars, and time zones.</span></div></div>
       </article>
-      <article class="hero-slide oisc-slide" data-slide="1" aria-hidden="true">
+      <article class="hero-slide oisc-slide is-active" data-slide="1" aria-hidden="false">
         <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">OISC Application</p><h1>Bring your class to the next OISC.</h1><p>Application information for the Online International Student Conference can appear here when the next participation cycle opens.</p><div class="button-row"><a class="button coral" href="#oisc">OISC Application Information</a><a class="button secondary" href="#oisc">About OISC</a></div></div></div>
         <div class="hero-visual" role="img" aria-label="Online International Student Conference"><div class="visual-note"><strong>OISC</strong><span>A shared online conference experience for student voices and global perspectives.</span></div></div>
       </article>
@@ -246,7 +246,7 @@
       </div>
       <div class="slider-controls" aria-label="Hero slide controls">
         <button class="slider-button" id="previous-slide" type="button" aria-label="Show previous announcement">&#8592;</button>
-        <div class="slider-dots" aria-label="Select announcement"><button class="slider-dot" type="button" data-slide-to="0" aria-label="Show GCLI introduction" aria-current="true"></button><button class="slider-dot" type="button" data-slide-to="1" aria-label="Show OISC application announcement" aria-current="false"></button><button class="slider-dot" type="button" data-slide-to="2" aria-label="Show GCLI Professional Conference announcement" aria-current="false"></button></div>
+        <div class="slider-dots" aria-label="Select announcement"><button class="slider-dot" type="button" data-slide-to="0" aria-label="Show GCLI introduction" aria-current="false"></button><button class="slider-dot" type="button" data-slide-to="1" aria-label="Show OISC application announcement" aria-current="true"></button><button class="slider-dot" type="button" data-slide-to="2" aria-label="Show GCLI Professional Conference announcement" aria-current="false"></button></div>
         <button class="slider-button" id="pause-slider" type="button" aria-label="Pause automatic announcements">&#10074;&#10074;</button>
         <button class="slider-button" id="next-slide" type="button" aria-label="Show next announcement">&#8594;</button>
       </div>
@@ -320,7 +320,7 @@
     const hero = document.querySelector('.hero');
     const heroTrack = document.getElementById('hero-track');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let currentSlide = 0;
+    let currentSlide = 1;
     let autoplay = !reducedMotion;
     let timer;
 
@@ -355,7 +355,9 @@
     hero.addEventListener('mouseleave', scheduleAutoplay);
     hero.addEventListener('focusin', () => clearInterval(timer));
     hero.addEventListener('focusout', scheduleAutoplay);
+    showSlide(currentSlide);
     setAutoplay(autoplay);
   </script>
 </body>
 </html>
+

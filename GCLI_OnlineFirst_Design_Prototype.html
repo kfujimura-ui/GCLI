@@ -148,7 +148,10 @@
     .news { padding: 92px 0; background: var(--white); scroll-margin-top: 132px; }
     .news-list { border-top: 1px solid var(--line); }
     .news-item { display: grid; grid-template-columns: 165px minmax(0, 1fr) 145px; gap: 28px; align-items: center; padding: 25px 0; border-bottom: 1px solid var(--line); }
-    .news-meta { color: var(--indigo); font-size: 13px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .news-meta { display: inline-flex; width: max-content; min-height: 29px; align-items: center; padding: 5px 9px; border-radius: 4px; font-size: 12px; font-weight: 850; letter-spacing: .07em; line-height: 1; text-transform: uppercase; }
+    .news-meta.oisc { background: #e5edff; color: #294272; }
+    .news-meta.oise { background: #def2ef; color: #0e6265; }
+    .news-meta.gcli { background: #fff0ea; color: #ad4d3e; }
     .news-item h3 { margin: 0 0 5px; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-size: 23px; line-height: 1.2; }
     .news-item p { margin: 0; color: var(--muted); font-size: 16px; }
     .news-link { justify-self: end; color: var(--teal-800); font-size: 15px; font-weight: 800; text-decoration: none; }
@@ -264,9 +267,9 @@
       <div class="wrap">
         <div class="section-head"><div><p class="kicker">GCLI News</p><h2 id="news-title">Updates from the GCLI community.</h2></div><p>Current announcements from OISC, OISE, and the GCLI professional community.</p></div>
         <div class="news-list">
-          <article class="news-item"><span class="news-meta">Demo / OISC</span><div><h3>OISC participation information</h3><p>Sample announcement for the next Online International Student Conference cycle.</p></div><a class="news-link" href="#oisc">Read update</a></article>
-          <article class="news-item"><span class="news-meta">Demo / OISE</span><div><h3>OISE partner matching</h3><p>Sample announcement for educators preparing a Virtual Exchange or COIL project.</p></div><a class="news-link" href="#oise">Read update</a></article>
-          <article class="news-item"><span class="news-meta">Demo / GCLI</span><div><h3>GCLI Professional Conference</h3><p>Sample announcement for a future Call for Proposals, registration, or programme update.</p></div><a class="news-link" href="#gcli">Read update</a></article>
+          <article class="news-item"><span class="news-meta oisc">Demo / OISC</span><div><h3>OISC participation information</h3><p>Sample announcement for the next Online International Student Conference cycle.</p></div><a class="news-link" href="#oisc">Read update</a></article>
+          <article class="news-item"><span class="news-meta oise">Demo / OISE</span><div><h3>OISE partner matching</h3><p>Sample announcement for educators preparing a Virtual Exchange or COIL project.</p></div><a class="news-link" href="#oise">Read update</a></article>
+          <article class="news-item"><span class="news-meta gcli">Demo / GCLI</span><div><h3>GCLI Professional Conference</h3><p>Sample announcement for a future Call for Proposals, registration, or programme update.</p></div><a class="news-link" href="#gcli">Read update</a></article>
         </div>
       </div>
     </section>

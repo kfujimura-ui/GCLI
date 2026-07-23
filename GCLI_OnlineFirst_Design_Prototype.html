@@ -35,14 +35,15 @@
 
     .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(252, 252, 250, .98); }
     .header-row { min-height: 104px; display: grid; grid-template-columns: minmax(290px, 1fr) auto minmax(140px, 1fr); align-items: center; gap: 26px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--teal-950); text-decoration: none; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--teal-950); cursor: default; user-select: none; }
     .brand-symbol { position: relative; width: 64px; height: 64px; border: 5px solid var(--teal-800); border-radius: 50%; }
     .brand-symbol::before, .brand-symbol::after { position: absolute; content: ""; background: var(--coral); }
     .brand-symbol::before { width: 13px; height: 13px; border-radius: 50%; right: -7px; top: -7px; }
     .brand-symbol::after { width: 5px; height: 25px; right: 6px; top: 5px; transform: rotate(38deg); transform-origin: bottom; }
-    .brand-name { display: grid; gap: 1px; }
+    .brand-name { display: grid; gap: 2px; padding-left: 13px; border-left: 1px solid #d6e1df; }
     .brand-name strong { font-size: 23px; letter-spacing: .08em; }
     .brand-name span { color: var(--muted); font-size: 13px; letter-spacing: .04em; }
+    .brand-name small { color: var(--teal-800); font-size: 11px; font-weight: 750; letter-spacing: .03em; }
     .primary-nav { display: flex; align-items: center; gap: 21px; }
     .primary-nav a { color: var(--ink); font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; }
     .primary-nav a:hover, .primary-nav a:focus-visible { color: var(--teal-800); }
@@ -178,7 +179,8 @@
       :root { --content: min(100% - 30px, 1180px); }
       .brand-symbol { width: 48px; height: 48px; border-width: 4px; }
       .brand-name strong { font-size: 19px; }
-      .brand-name span { display: none; }
+      .brand-name { padding-left: 10px; }
+      .brand-name span, .brand-name small { display: none; }
       .membership-link { display: none; }
       .primary-nav { gap: 17px; }
       .primary-nav a { font-size: 14px; }
@@ -203,10 +205,10 @@
 <body>
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="brand" href="#top" aria-label="GCLI home">
+      <div class="brand" aria-label="GCLI, Global Collaborative Learning Initiative">
         <span class="brand-symbol" aria-hidden="true"></span>
-        <span class="brand-name"><strong>GCLI</strong><span>Global Collaborative Learning Initiative</span></span>
-      </a>
+        <span class="brand-name"><strong>GCLI</strong><span>Global Collaborative Learning Initiative</span><small>Active learning across borders, online.</small></span>
+      </div>
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#about-anchor">About</a>
         <a href="#oisc-section">OISC &amp; OISE</a>

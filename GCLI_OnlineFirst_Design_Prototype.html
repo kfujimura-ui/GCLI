@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GCLI online-first visual design prototype.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <title>GCLI | Active Learning Across Borders, Online</title>
+  <style>
+    :root {
+      --teal-950: #103f4a;
+      --teal-800: #155b63;
+      --indigo: #294272;
+      --coral: #d6614f;
+      --coral-dark: #b94c3e;
+      --sky: #e7f0f2;
+      --sand: #f4efe7;
+      --paper: #fcfcfa;
+      --ink: #183039;
+      --muted: #5d7177;
+      --line: #d5e0df;
+      --white: #ffffff;
+      --radius: 6px;
+      --content: min(1180px, calc(100% - 48px));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Figtree, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55; }
+    a, button { font: inherit; }
+    a { color: inherit; }
+    .wrap { width: var(--content); margin: 0 auto; }
+
+    .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(252, 252, 250, .98); }
+    .header-row { min-height: 104px; display: grid; grid-template-columns: minmax(290px, 1fr) auto minmax(140px, 1fr); align-items: center; gap: 26px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--teal-950); text-decoration: none; }
+    .brand-symbol { position: relative; width: 64px; height: 64px; border: 5px solid var(--teal-800); border-radius: 50%; }
+    .brand-symbol::before, .brand-symbol::after { position: absolute; content: ""; background: var(--coral); }
+    .brand-symbol::before { width: 13px; height: 13px; border-radius: 50%; right: -7px; top: -7px; }
+    .brand-symbol::after { width: 5px; height: 25px; right: 6px; top: 5px; transform: rotate(38deg); transform-origin: bottom; }
+    .brand-name { display: grid; gap: 1px; }
+    .brand-name strong { font-size: 23px; letter-spacing: .08em; }
+    .brand-name span { color: var(--muted); font-size: 13px; letter-spacing: .04em; }
+    .primary-nav { display: flex; align-items: center; gap: 21px; }
+    .primary-nav a { color: var(--ink); font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .primary-nav a:hover, .primary-nav a:focus-visible { color: var(--teal-800); }
+    .header-actions { display: flex; justify-content: end; align-items: center; gap: 13px; }
+    .membership-link { padding: 10px 13px; border: 1px solid var(--coral); border-radius: 3px; color: var(--coral-dark); font-size: 14px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+    .membership-link:hover, .membership-link:focus-visible { color: var(--white); background: var(--coral); }
+    .account-wrap { position: relative; }
+    .account-button { display: inline-grid; width: 43px; height: 43px; place-items: center; border: 0; border-radius: 50%; background: var(--indigo); color: var(--white); cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: .04em; }
+    .account-menu { position: absolute; right: 0; top: 48px; width: 270px; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 18px 42px rgba(24, 48, 57, .18); }
+    .account-menu[hidden] { display: none; }
+    .account-menu header { padding: 10px 11px 12px; border-bottom: 1px solid var(--line); }
+    .account-menu header strong, .account-menu header span { display: block; }
+    .account-menu header strong { font-size: 14px; }
+    .account-menu header span { color: var(--muted); font-size: 12px; }
+    .account-menu a { display: block; padding: 9px 11px; color: var(--ink); font-size: 13px; text-decoration: none; }
+    .account-menu a:hover { background: var(--sky); color: var(--teal-800); }
+
+    .hero { position: relative; min-height: 610px; overflow: hidden; }
+    .hero-track { display: flex; width: 300%; min-height: 610px; transition: transform 680ms cubic-bezier(.22, .61, .36, 1); will-change: transform; }
+    .hero-slide { display: grid; flex: 0 0 33.333333%; grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr); min-height: 610px; }
+    .hero-copy { display: flex; align-items: end; padding: 96px max(24px, calc((100vw - 1180px) / 2)) 76px; background: var(--teal-950); color: var(--white); }
+    .hero-copy-inner { max-width: 620px; }
+    .kicker { margin: 0 0 17px; color: #f0bd75; font-size: 14px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-weight: 650; letter-spacing: 0; }
+    h1 { margin-bottom: 22px; font-size: clamp(48px, 5.3vw, 76px); line-height: .99; }
+    .hero-copy p:not(.kicker) { max-width: 540px; margin-bottom: 30px; color: #d9e7e8; font-size: 20px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 11px; }
+    .button { display: inline-flex; min-height: 49px; align-items: center; justify-content: center; padding: 11px 18px; border: 1px solid var(--white); border-radius: 3px; background: var(--white); color: var(--teal-950); font-size: 15px; font-weight: 800; text-decoration: none; }
+    .button.secondary { border-color: #d9e7f5; background: #d9e7f5; color: var(--indigo); }
+    .button.coral { border-color: var(--coral); background: var(--coral); color: var(--white); }
+    .button:hover, .button:focus-visible { background: var(--coral-dark); border-color: var(--coral-dark); color: var(--white); }
+    .button.secondary:hover, .button.secondary:focus-visible { border-color: #b8cde4; background: #b8cde4; color: var(--indigo); }
+    .hero-visual { position: relative; min-height: 360px; overflow: hidden; background: var(--indigo) url("Images/hero_general_meeting.jpg") center / cover no-repeat; }
+    .hero-slide.oisc-slide .hero-copy { background: var(--indigo); }
+    .hero-slide.oisc-slide .hero-visual { background-image: url("Images/oisc-application-online-collaboration.png"); }
+    .hero-slide.conference-slide .hero-copy { background: var(--teal-800); }
+    .hero-slide.conference-slide .hero-visual { background-image: url("Images/gcli-professional-conference.png"); }
+    .hero-visual::after { position: absolute; inset: auto 0 0 0; height: 175px; content: ""; background: rgba(41, 66, 114, .88); }
+    .visual-note { position: absolute; z-index: 1; right: 9%; bottom: 31px; max-width: 290px; color: var(--white); }
+    .visual-note strong { display: block; margin-bottom: 4px; color: #f5ce91; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .visual-note span { font-size: 17px; font-weight: 650; }
+    .slider-controls { position: absolute; z-index: 3; right: max(24px, calc((100vw - 1180px) / 2)); bottom: 24px; display: flex; align-items: center; gap: 9px; color: var(--white); }
+    .slider-button { display: inline-grid; width: 39px; height: 39px; place-items: center; border: 1px solid rgba(255, 255, 255, .72); border-radius: 50%; background: rgba(16, 63, 74, .74); color: var(--white); cursor: pointer; font-size: 18px; line-height: 1; }
+    .slider-button:hover, .slider-button:focus-visible { border-color: var(--white); background: var(--coral); }
+    .slider-dots { display: flex; align-items: center; gap: 7px; padding: 0 3px; }
+    .slider-dot { width: 11px; height: 11px; padding: 0; border: 1px solid var(--white); border-radius: 50%; background: transparent; cursor: pointer; }
+    .slider-dot[aria-current="true"] { background: var(--white); }
+    .conference-date { display: grid; gap: 2px; margin-bottom: 28px; color: #e3ecf4; }
+    .conference-date strong { color: #fff3d0; font-size: 22px; }
+    .conference-date span { font-size: 16px; }
+    @media (prefers-reduced-motion: reduce) { .hero-track { transition: none; } }
+
+    .online-bar { border-bottom: 1px solid var(--line); background: var(--white); }
+    .online-grid { display: grid; grid-template-columns: .8fr 1.1fr 1.1fr; }
+    .online-item { min-height: 112px; padding: 23px 27px; border-right: 1px solid var(--line); }
+    .online-item:last-child { border-right: 0; }
+    .online-item small { display: block; margin-bottom: 7px; color: var(--teal-800); font-size: 14px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .online-item strong { display: block; font-size: 18px; line-height: 1.32; }
+    .section-anchor { display: block; height: 1px; scroll-margin-top: 132px; }
+
+    section { padding: 96px 0; }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .7fr); gap: 70px; align-items: end; margin-bottom: 50px; }
+    .section-head h2 { max-width: 640px; margin-bottom: 0; font-size: clamp(34px, 4.4vw, 59px); line-height: 1.04; }
+    .section-head p { margin-bottom: 0; color: var(--muted); font-size: 18px; }
+    .programmes { padding-bottom: 46px; }
+    .programme-group-title { display: grid; grid-template-columns: minmax(240px, .55fr) minmax(0, 1fr); gap: 34px; align-items: baseline; margin: 0 0 25px; }
+    .programme-group-title h3 { margin: 0; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-size: clamp(31px, 4vw, 48px); font-weight: 650; line-height: 1.05; }
+    .programme-group-title p { max-width: 570px; margin: 0; color: var(--muted); font-size: 17px; }
+    .student-programmes { padding: 54px 55px 24px; border-top: 5px solid var(--teal-800); background: var(--sky); scroll-margin-top: 132px; }
+    .student-programmes .programme-group-title h3 { color: var(--teal-950); }
+    .student-programmes .programme-row { border-color: #bdd1d4; }
+    .student-programmes .programme-row:last-child { border-bottom: 1px solid #bdd1d4; }
+    .programme-row { display: grid; grid-template-columns: 140px minmax(0, 1fr) minmax(180px, .38fr); gap: 28px; align-items: start; padding: 29px 0; border-top: 1px solid var(--line); }
+    .programme-tag { color: var(--indigo); font-size: 14px; font-weight: 850; letter-spacing: .1em; }
+    .programme-row h3 { margin: 0 0 8px; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-size: 34px; font-weight: 700; }
+    .programme-row p { max-width: 630px; margin-bottom: 0; color: var(--muted); font-size: 18px; }
+    .programme-link { justify-self: end; align-self: center; color: var(--teal-800); font-size: 15px; font-weight: 800; text-decoration: none; }
+    .programme-link::after { margin-left: 7px; content: "→"; }
+    .professional-group { margin-top: 88px; padding: 54px 55px 24px; border-top: 5px solid var(--indigo); background: var(--sand); }
+    .professional-group { scroll-margin-top: 132px; }
+    .professional-group .programme-group-title { margin-bottom: 33px; }
+    .professional-group .programme-group-title h3 { color: var(--indigo); }
+    .professional-group .programme-row { border-color: #d5cbbb; }
+    .professional-group .programme-row:last-child { border-bottom: 1px solid #d5cbbb; }
+
+    .now { padding-top: 48px; background: var(--sand); }
+    .now-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 64px; align-items: center; }
+    .now-photo { min-height: 360px; background: url("../OISC/Images/OISC%20Hero20260623.png") center / cover no-repeat; }
+    .now h2 { margin-bottom: 18px; font-size: clamp(34px, 4.4vw, 57px); line-height: 1.05; }
+    .now p { color: var(--muted); font-size: 18px; }
+    .now-list { display: grid; gap: 0; margin-top: 28px; border-top: 1px solid #d6cbb9; }
+    .now-list div { display: grid; grid-template-columns: 88px 1fr; gap: 15px; padding: 14px 0; border-bottom: 1px solid #d6cbb9; }
+    .now-list b { color: var(--coral-dark); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .now-list span { font-size: 16px; font-weight: 650; }
+
+    .membership { color: var(--white); background: var(--indigo); }
+    .membership-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: end; }
+    .membership h2 { margin-bottom: 0; font-size: clamp(36px, 4.6vw, 62px); line-height: 1.02; }
+    .membership p { color: #d9e0f0; font-size: 18px; }
+    .membership .button { margin-top: 4px; }
+
+    .news { padding: 92px 0; background: var(--white); scroll-margin-top: 132px; }
+    .news-list { border-top: 1px solid var(--line); }
+    .news-item { display: grid; grid-template-columns: 165px minmax(0, 1fr) 145px; gap: 28px; align-items: center; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .news-meta { color: var(--indigo); font-size: 13px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .news-item h3 { margin: 0 0 5px; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-size: 23px; line-height: 1.2; }
+    .news-item p { margin: 0; color: var(--muted); font-size: 16px; }
+    .news-link { justify-self: end; color: var(--teal-800); font-size: 15px; font-weight: 800; text-decoration: none; }
+    .news-link::after { margin-left: 7px; content: "→"; }
+
+    footer { padding: 44px 0 28px; background: #112b33; color: #dfe8e7; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; padding-bottom: 38px; }
+    .footer-grid strong { display: block; margin-bottom: 10px; color: var(--white); font-size: 15px; letter-spacing: .05em; }
+    .footer-grid p, .footer-grid a { color: #b8cdca; font-size: 15px; }
+    .footer-grid p { max-width: 265px; margin: 0; }
+    .footer-grid a { display: block; margin: 7px 0; text-decoration: none; }
+    .footer-grid a:hover { color: var(--white); }
+    .copyright { padding-top: 20px; border-top: 1px solid #31505a; color: #91aaa6; font-size: 12px; }
+
+    @media (max-width: 960px) {
+      .header-row { grid-template-columns: 1fr auto; padding: 13px 0; }
+      .primary-nav { grid-column: 1 / -1; grid-row: 2; overflow-x: auto; padding-bottom: 5px; }
+      .hero-track { min-height: 850px; }
+      .hero-slide { grid-template-columns: 1fr; min-height: 850px; }
+      .hero-copy { min-height: 500px; padding: 90px max(24px, calc((100vw - 1180px) / 2)) 66px; }
+      .hero-visual { min-height: 350px; }
+    }
+    @media (max-width: 680px) {
+      :root { --content: min(100% - 30px, 1180px); }
+      .brand-symbol { width: 48px; height: 48px; border-width: 4px; }
+      .brand-name strong { font-size: 19px; }
+      .brand-name span { display: none; }
+      .membership-link { display: none; }
+      .primary-nav { gap: 17px; }
+      .primary-nav a { font-size: 14px; }
+      .online-grid, .section-head, .now-grid, .membership-layout, .footer-grid { grid-template-columns: 1fr; }
+      .online-item { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .online-item:last-child { border-bottom: 0; }
+      .section-head { gap: 21px; margin-bottom: 34px; }
+      .programme-group-title, .programme-row { grid-template-columns: 1fr; gap: 10px; }
+      .programme-link { justify-self: start; }
+      .professional-group { margin-top: 64px; padding: 35px 24px 13px; }
+      .student-programmes { padding: 35px 24px 13px; }
+      .now { padding-top: 70px; }
+      .now-grid { gap: 31px; }
+      .now-photo { min-height: 270px; }
+      .news { padding: 70px 0; }
+      .news-item { grid-template-columns: 1fr; gap: 9px; }
+      .news-link { justify-self: start; }
+      .footer-grid { gap: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#top" aria-label="GCLI home">
+        <span class="brand-symbol" aria-hidden="true"></span>
+        <span class="brand-name"><strong>GCLI</strong><span>Global Collaborative Learning Initiative</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#about-anchor">About</a>
+        <a href="#oisc-section">OISC &amp; OISE</a>
+        <a href="#gcli">GCLI</a>
+        <a href="#news">NEWS</a>
+      </nav>
+      <div class="header-actions">
+        <a class="membership-link" href="#membership">Membership</a>
+        <div class="account-wrap">
+          <button class="account-button" id="account-button" type="button" aria-expanded="false" aria-controls="account-menu" aria-label="Open My GCLI account menu">KF</button>
+          <div class="account-menu" id="account-menu" hidden>
+            <header><strong>Keiji Fujimura</strong><span>Active GCLI Member</span></header>
+            <a href="#profile">My Profile</a>
+            <a href="#membership">Membership &amp; Renewal</a>
+            <a href="#oise">OISE Workspace</a>
+            <a href="#oisc">OISC Faculty Pages</a>
+            <a href="#conference">Conference Registrations</a>
+            <a href="#top">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="GCLI announcements" aria-roledescription="carousel">
+      <div class="hero-track" id="hero-track">
+      <article class="hero-slide is-active" data-slide="0" aria-hidden="false">
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">Global Collaborative Learning Initiative</p><h1>Active learning across borders, online.</h1><p>GCLI gives students and educators a place to investigate, create, present, discuss, and reflect with peers in other parts of the world.</p><div class="button-row"><a class="button coral" href="#oisc">Discover OISC</a><a class="button secondary" href="#oise">Discover OISE</a></div></div></div>
+        <div class="hero-visual" role="img" aria-label="Students and educators collaborating online"><div class="visual-note"><strong>Online by design</strong><span>Collaboration that works across distance, academic calendars, and time zones.</span></div></div>
+      </article>
+      <article class="hero-slide oisc-slide" data-slide="1" aria-hidden="true">
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">OISC Application</p><h1>Bring your class to the next OISC.</h1><p>Application information for the Online International Student Conference can appear here when the next participation cycle opens.</p><div class="button-row"><a class="button coral" href="#oisc">OISC Application Information</a><a class="button secondary" href="#oisc">About OISC</a></div></div></div>
+        <div class="hero-visual" role="img" aria-label="Online International Student Conference"><div class="visual-note"><strong>OISC</strong><span>A shared online conference experience for student voices and global perspectives.</span></div></div>
+      </article>
+      <article class="hero-slide conference-slide" data-slide="2" aria-hidden="true">
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">GCLI Professional Conference</p><h1>Meet in person. Move the field forward.</h1><p class="conference-date"><strong>15 February 2027</strong><span>Osaka Seikei University · Provisional host and date</span></p><p>A future in-person conference for educators and researchers working in online international collaborative learning.</p><div class="button-row"><a class="button coral" href="#gcli">Submit a Proposal</a><a class="button secondary" href="#gcli">Conference Information</a></div></div></div>
+        <div class="hero-visual" role="img" aria-label="GCLI Professional Conference"><div class="visual-note"><strong>GCLI Professional Conference</strong><span>In-person exchange for the people who design and study global collaborative learning.</span></div></div>
+      </article>
+      </div>
+      <div class="slider-controls" aria-label="Hero slide controls">
+        <button class="slider-button" id="previous-slide" type="button" aria-label="Show previous announcement">&#8592;</button>
+        <div class="slider-dots" aria-label="Select announcement"><button class="slider-dot" type="button" data-slide-to="0" aria-label="Show GCLI introduction" aria-current="true"></button><button class="slider-dot" type="button" data-slide-to="1" aria-label="Show OISC application announcement" aria-current="false"></button><button class="slider-dot" type="button" data-slide-to="2" aria-label="Show GCLI Professional Conference announcement" aria-current="false"></button></div>
+        <button class="slider-button" id="pause-slider" type="button" aria-label="Pause automatic announcements">&#10074;&#10074;</button>
+        <button class="slider-button" id="next-slide" type="button" aria-label="Show next announcement">&#8594;</button>
+      </div>
+    </section>
+
+    <span class="section-anchor" id="about-anchor" aria-hidden="true"></span>
+    <section class="now" id="journal">
+      <div class="wrap now-grid">
+        <div class="now-photo" role="img" aria-label="Online international student conference"></div>
+        <div><p class="kicker">About GCLI</p><h2>A research community for learning that lasts.</h2><p>Global Collaborative Learning Initiative (GCLI) is the professional and scholarly community that develops and sustains online international collaborative learning. It operates OISC and OISE as online learning platforms where students, educators, and partner classrooms can engage in meaningful exchange across borders.</p><p>GCLI also creates a forum for the work and evidence that emerge from those experiences. Through conferences, research forums, and practice-based publication, educators and researchers can share findings, examine classroom practice, and carry learning from OISC and OISE into future international collaboration.</p></div>
+      </div>
+    </section>
+
+    <section class="news" id="news" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">GCLI News</p><h2 id="news-title">Updates from the GCLI community.</h2></div><p>Current announcements from OISC, OISE, and the GCLI professional community.</p></div>
+        <div class="news-list">
+          <article class="news-item"><span class="news-meta">Demo / OISC</span><div><h3>OISC participation information</h3><p>Sample announcement for the next Online International Student Conference cycle.</p></div><a class="news-link" href="#oisc">Read update</a></article>
+          <article class="news-item"><span class="news-meta">Demo / OISE</span><div><h3>OISE partner matching</h3><p>Sample announcement for educators preparing a Virtual Exchange or COIL project.</p></div><a class="news-link" href="#oise">Read update</a></article>
+          <article class="news-item"><span class="news-meta">Demo / GCLI</span><div><h3>GCLI Professional Conference</h3><p>Sample announcement for a future Call for Proposals, registration, or programme update.</p></div><a class="news-link" href="#gcli">Read update</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="programmes" aria-labelledby="programme-title">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">One initiative, two layers of work</p><h2 id="programme-title">Online international learning, connected to a professional community.</h2></div><p>GCLI brings students into international collaboration through OISC and OISE, then supports the field through professional exchange and research.</p></div>
+        <div class="student-programmes" id="oisc-section">
+          <div class="programme-group-title"><h3>For Student Collaboration</h3><p>Two distinct online pathways where students learn with international peers through purposeful exchange.</p></div>
+          <article class="programme-row" id="oisc"><span class="programme-tag">01 / LEARNING PATHWAY</span><div><h3>OISC</h3><p>Online International Student Conference brings classes into a shared online experience where students prepare, present, discuss, and learn from one another across borders.</p></div><a class="programme-link" href="#oisc">Discover OISC</a></article>
+          <article class="programme-row" id="oise"><span class="programme-tag">02 / LEARNING PATHWAY</span><div><h3>OISE</h3><p>Online International Student Exchange creates student collaboration through Virtual Exchange and COIL. It supports educators in finding compatible partner classrooms by considering calendars, duration, time zones, class size, CEFR range, and learning goals from the start.</p></div><a class="programme-link" href="#oise">Discover OISE</a></article>
+        </div>
+        <div class="professional-group" id="gcli">
+          <div class="programme-group-title"><h3>For Professional Collaboration and Research</h3><p>GCLI's scholarly and professional space for the people who design, study, and sustain online international learning.</p></div>
+          <article class="programme-row" id="conference"><span class="programme-tag">03 / GCLI COMMUNITY</span><div><h3>GCLI Conference and Journal</h3><p>The professional and scholarly functions of GCLI. Online spaces for educators and researchers to share evidence, classroom practice, and lessons that emerge from OISC, OISE, and related collaborative learning.</p></div><a class="programme-link" href="#journal">Explore the GCLI community</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="membership" id="membership">
+      <div class="wrap membership-layout">
+        <div><p class="kicker">GCLI Membership</p><h2>One community for the people who make global learning happen online.</h2></div>
+        <div><p>Membership connects the platform, professional community, and programme access. It is the starting point for a shared GCLI profile, OISE participation, OISC Faculty Advisor access, and future conference and journal opportunities.</p><a class="button coral" href="#membership">Become a Member</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><strong>GCLI</strong><p>Global Collaborative Learning Initiative. Active learning across borders, online.</p></div>
+      <div><strong>Learning</strong><a href="#oisc-section">OISC &amp; OISE</a><a href="#oisc">Online International Student Conference</a><a href="#oise">Online International Student Exchange</a></div>
+      <div><strong>Community</strong><a href="#gcli">GCLI Professional Community</a><a href="#news">GCLI News</a><a href="#membership">Membership</a><a href="#top">My GCLI</a></div>
+      <div><strong>Organisation</strong><a href="#about-anchor">About GCLI</a><a href="#top">Governance</a><a href="#top">Contact</a><a href="#top">Privacy</a></div>
+    </div>
+    <div class="wrap copyright">Copyright &copy; 2026 Global Collaborative Learning Initiative. All rights reserved. Visual design prototype.</div>
+  </footer>
+
+  <script>
+    const button = document.getElementById('account-button');
+    const menu = document.getElementById('account-menu');
+    const closeMenu = () => { menu.hidden = true; button.setAttribute('aria-expanded', 'false'); };
+    button.addEventListener('click', () => { const open = !menu.hidden; menu.hidden = open; button.setAttribute('aria-expanded', String(!open)); });
+    document.addEventListener('click', (event) => { if (!event.target.closest('.account-wrap')) closeMenu(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    const dots = [...document.querySelectorAll('.slider-dot')];
+    const previousSlide = document.getElementById('previous-slide');
+    const nextSlide = document.getElementById('next-slide');
+    const pauseSlider = document.getElementById('pause-slider');
+    const hero = document.querySelector('.hero');
+    const heroTrack = document.getElementById('hero-track');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let currentSlide = 0;
+    let autoplay = !reducedMotion;
+    let timer;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === currentSlide;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+      });
+      dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === currentSlide)));
+      heroTrack.style.transform = `translateX(-${currentSlide * 33.333333}%)`;
+    }
+
+    function scheduleAutoplay() {
+      clearInterval(timer);
+      if (autoplay) timer = setInterval(() => showSlide(currentSlide + 1), 4000);
+    }
+
+    function setAutoplay(active) {
+      autoplay = active;
+      pauseSlider.innerHTML = active ? '&#10074;&#10074;' : '&#9654;';
+      pauseSlider.setAttribute('aria-label', active ? 'Pause automatic announcements' : 'Resume automatic announcements');
+      scheduleAutoplay();
+    }
+
+    previousSlide.addEventListener('click', () => { showSlide(currentSlide - 1); scheduleAutoplay(); });
+    nextSlide.addEventListener('click', () => { showSlide(currentSlide + 1); scheduleAutoplay(); });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); scheduleAutoplay(); }));
+    pauseSlider.addEventListener('click', () => setAutoplay(!autoplay));
+    hero.addEventListener('mouseenter', () => clearInterval(timer));
+    hero.addEventListener('mouseleave', scheduleAutoplay);
+    hero.addEventListener('focusin', () => clearInterval(timer));
+    hero.addEventListener('focusout', scheduleAutoplay);
+    setAutoplay(autoplay);
+  </script>
+</body>
+</html>

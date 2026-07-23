@@ -35,7 +35,7 @@
 
     .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(252, 252, 250, .98); }
     .header-row { min-height: 104px; display: grid; grid-template-columns: minmax(290px, 1fr) auto minmax(140px, 1fr); align-items: center; gap: 26px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--teal-950); cursor: default; user-select: none; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--teal-950); cursor: pointer; user-select: none; text-decoration: none; }
     .brand-symbol { position: relative; width: 64px; height: 64px; border: 5px solid var(--teal-800); border-radius: 50%; }
     .brand-symbol::before, .brand-symbol::after { position: absolute; content: ""; background: var(--coral); }
     .brand-symbol::before { width: 13px; height: 13px; border-radius: 50%; right: -7px; top: -7px; }
@@ -165,6 +165,10 @@
     .footer-grid p { max-width: 265px; margin: 0; }
     .footer-grid a { display: block; margin: 7px 0; text-decoration: none; }
     .footer-grid a:hover { color: var(--white); }
+    .footer-brand { display: grid; gap: 5px; padding-left: 15px; border-left: 2px solid var(--coral); }
+    .footer-brand strong { margin: 0; font-size: 22px; letter-spacing: .08em; }
+    .footer-brand p { margin: 0; color: #dfe8e7; font-size: 15px; line-height: 1.4; }
+    .footer-brand span { color: #93b7b0; font-size: 12px; font-weight: 750; letter-spacing: .03em; }
     .copyright { padding-top: 20px; border-top: 1px solid #31505a; color: #91aaa6; font-size: 12px; }
 
     @media (max-width: 960px) {
@@ -205,10 +209,10 @@
 <body>
   <header class="site-header">
     <div class="wrap header-row">
-      <div class="brand" aria-label="GCLI, Global Collaborative Learning Initiative">
+      <a class="brand" href="#top" aria-label="GCLI home">
         <span class="brand-symbol" aria-hidden="true"></span>
         <span class="brand-name"><strong>GCLI</strong><span>Global Collaborative Learning Initiative</span><small>Active learning across borders, online.</small></span>
-      </div>
+      </a>
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#about-anchor">About</a>
         <a href="#oisc-section">OISC &amp; OISE</a>
@@ -301,7 +305,7 @@
 
   <footer>
     <div class="wrap footer-grid">
-      <div><strong>GCLI</strong><p>Global Collaborative Learning Initiative. Active learning across borders, online.</p></div>
+      <div class="footer-brand"><strong>GCLI</strong><p>Global Collaborative Learning Initiative</p><span>Active learning across borders, online.</span></div>
       <div><strong>Learning</strong><a href="https://kfujimura-ui.github.io/oisc/">Online International Student Conference (OISC)</a><a href="#oise">Online International Student Exchange (OISE)</a></div>
       <div><strong>Community</strong><a href="#gcli">GCLI Professional Community</a><a href="#news">GCLI News</a><a href="#membership">Membership</a><a href="#top">My GCLI</a></div>
       <div><strong>Organisation</strong><a href="#about-anchor">About GCLI</a><a href="#top">Governance</a><a href="#top">Contact</a><a href="#top">Privacy</a></div>

@@ -24,6 +24,7 @@
       --white: #ffffff;
       --radius: 6px;
       --content: min(1180px, calc(100% - 48px));
+      --sticky-anchor-offset: 150px;
     }
 
     * { box-sizing: border-box; }
@@ -104,7 +105,12 @@
     .online-item:last-child { border-right: 0; }
     .online-item small { display: block; margin-bottom: 7px; color: var(--teal-800); font-size: 14px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .online-item strong { display: block; font-size: 18px; line-height: 1.32; }
-    .section-anchor { display: block; height: 1px; scroll-margin-top: 132px; }
+    .section-anchor { display: block; height: 1px; }
+
+    /* Every in-page destination clears the sticky header before its heading. */
+    #about-anchor, #journal, #news, #oisc-section, #oisc, #oise, #gcli, #conference, #membership {
+      scroll-margin-top: var(--sticky-anchor-offset);
+    }
 
     section { padding: 96px 0; }
     .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .7fr); gap: 70px; align-items: end; margin-bottom: 50px; }
@@ -114,7 +120,7 @@
     .programme-group-title { display: grid; grid-template-columns: minmax(240px, .55fr) minmax(0, 1fr); gap: 34px; align-items: baseline; margin: 0 0 25px; }
     .programme-group-title h3 { margin: 0; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-size: clamp(31px, 4vw, 48px); font-weight: 650; line-height: 1.05; }
     .programme-group-title p { max-width: 570px; margin: 0; color: var(--muted); font-size: 17px; }
-    .student-programmes { padding: 54px 55px 24px; border-top: 5px solid var(--teal-800); background: var(--sky); scroll-margin-top: 132px; }
+    .student-programmes { padding: 54px 55px 24px; border-top: 5px solid var(--teal-800); background: var(--sky); }
     .student-programmes .programme-group-title h3 { color: var(--teal-950); }
     .student-programmes .programme-row { border-color: #bdd1d4; }
     .student-programmes .programme-row:last-child { border-bottom: 1px solid #bdd1d4; }
@@ -125,7 +131,6 @@
     .programme-link { justify-self: end; align-self: center; color: var(--teal-800); font-size: 15px; font-weight: 800; text-decoration: none; }
     .programme-link::after { margin-left: 7px; content: "→"; }
     .professional-group { margin-top: 88px; padding: 54px 55px 24px; border-top: 5px solid var(--indigo); background: var(--sand); }
-    .professional-group { scroll-margin-top: 132px; }
     .professional-group .programme-group-title { margin-bottom: 33px; }
     .professional-group .programme-group-title h3 { color: var(--indigo); }
     .professional-group .programme-row { border-color: #d5cbbb; }
@@ -147,7 +152,7 @@
     .membership p { color: #d9e0f0; font-size: 18px; }
     .membership .button { margin-top: 4px; }
 
-    .news { padding: 92px 0; background: var(--white); scroll-margin-top: 132px; }
+    .news { padding: 92px 0; background: var(--white); }
     .news-list { border-top: 1px solid var(--line); }
     .news-item { display: grid; grid-template-columns: 165px minmax(0, 1fr) 145px; gap: 28px; align-items: center; padding: 25px 0; border-bottom: 1px solid var(--line); }
     .news-meta { display: inline-flex; width: max-content; min-height: 29px; align-items: center; padding: 5px 9px; border-radius: 4px; font-size: 12px; font-weight: 850; letter-spacing: .07em; line-height: 1; text-transform: uppercase; }
@@ -173,6 +178,7 @@
     .copyright { padding-top: 20px; border-top: 1px solid #31505a; color: #91aaa6; font-size: 12px; }
 
     @media (max-width: 960px) {
+      :root { --sticky-anchor-offset: 172px; }
       .header-row { grid-template-columns: 1fr auto; padding: 13px 0; }
       .primary-nav { grid-column: 1 / -1; grid-row: 2; overflow-x: auto; padding-bottom: 5px; }
       .hero-track { min-height: 850px; }
@@ -181,7 +187,7 @@
       .hero-visual { min-height: 350px; }
     }
     @media (max-width: 680px) {
-      :root { --content: min(100% - 30px, 1180px); }
+      :root { --content: min(100% - 30px, 1180px); --sticky-anchor-offset: 178px; }
       .header-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto auto; row-gap: 8px; padding: 13px 0 11px; }
       .brand-symbol { width: 48px; height: 48px; border-width: 4px; }
       .brand-name strong { font-size: 19px; }
@@ -200,7 +206,6 @@
       .programme-link { justify-self: start; }
       .professional-group { margin-top: 64px; padding: 35px 24px 13px; }
       .student-programmes { padding: 35px 24px 13px; }
-      .student-programmes, #oisc, #oise { scroll-margin-top: 160px; }
       .now { padding-top: 70px; }
       .now-grid { gap: 31px; }
       .now-photo { min-height: 270px; }

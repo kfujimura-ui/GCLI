@@ -378,5 +378,60 @@
     showSlide(currentSlide);
     setAutoplay(autoplay);
   </script>
-</body>
-</html>
+  <script>
+  /* GCLI Accounts 連携：portal.gcli.site のセッションを読んでアバターメニューを実データにする */
+  (function () {
+    var API = 'https://portal.gcli.site';
+    var LINKS = {
+      '#profile': '/me/',
+      '#membership': '/me/#membership',
+      '#oise': '/oise/',
+      '#oisc': '/cf_portal/',
+      '#conference': '/me/#conference'
+    };
+    var menu = document.getElementById('account-menu');
+    var btn = document.getElementById('account-button');
+    if (!menu || !btn) return;
+    var nameEl = menu.querySelector('strong');
+    var roleEl = nameEl ? nameEl.parentNode.querySelector('span') : null;
+    function initials(n) {
+      var s = String(n || '').trim().split(/\s+/).map(function (w) { return w.charAt(0); }).join('');
+      return s.slice(0, 2).toUpperCase() || 'GC';
+    }
+    function eachLink(fn) { [].forEach.call(menu.querySelectorAll('a'), fn); }
+    function showGuest() {
+      if (nameEl) nameEl.textContent = 'Not signed in';
+      if (roleEl) roleEl.textContent = 'Sign in to reach your GCLI pages';
+      btn.textContent = 'Sign in';
+      eachLink(function (a) {
+        if (a.getAttribute('href') === '#top') a.textContent = 'Sign in';
+        a.setAttribute('href', API + '/cf_portal/');
+      });
+    }
+    function showMember(s) {
+      if (nameEl) nameEl.textContent = s.name || 'GCLI member';
+      if (roleEl) roleEl.textContent = (s.owner ? 'Owner · ' : '') + 'Active GCLI Member' +
+        (s.institution ? ' · ' + s.institution : '');
+      btn.textContent = initials(s.name);
+      eachLink(function (a) {
+        var h = a.getAttribute('href');
+        if (LINKS[h]) { a.setAttribute('href', API + LINKS[h]); return; }
+        if (h === '#top') {
+          a.textContent = 'Sign out';
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            fetch(API + '/api/session', { method: 'POST', credentials: 'include' })
+              .then(function () { location.reload(); })
+              .catch(function () { location.reload(); });
+          });
+        }
+      });
+    }
+    fetch(API + '/api/session', { credentials: 'include' })
+      .then(function (r) { return r.json(); })
+      .then(function (s) { if (s && s.signedIn) { showMember(s); } else { showGuest(); } })
+      .catch(showGuest);
+  })();
+  </script>
+  </body>
+  </html>

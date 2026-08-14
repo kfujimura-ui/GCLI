@@ -399,15 +399,26 @@
       return s.slice(0, 2).toUpperCase() || 'GC';
     }
     function eachLink(fn) { [].forEach.call(menu.querySelectorAll('a'), fn); }
-    function showGuest() {
-      if (nameEl) nameEl.textContent = 'Not signed in';
-      if (roleEl) roleEl.textContent = 'Sign in to reach your GCLI pages';
-      btn.textContent = 'Sign in';
-      eachLink(function (a) {
-        if (a.getAttribute('href') === '#top') a.textContent = 'Sign in';
-                a.setAttribute('href', API + '/signin/?next=' + encodeURIComponent(location.href));
-      });
-    }
+          function showGuest() {
+        // ゲストのときはプルダウンを出さず、丸をそのまま「Sign in」ボタンにする
+        var url = API + '/signin/?next=' + encodeURIComponent(location.href);
+        btn.textContent = 'Sign in';
+        btn.setAttribute('aria-label', 'Sign in to GCLI');
+        btn.setAttribute('title', 'Sign in to GCLI');
+        btn.style.width = 'auto';
+        btn.style.minWidth = '0';
+        btn.style.height = 'auto';
+        btn.style.borderRadius = '999px';
+        btn.style.padding = '11px 20px';
+        btn.style.fontSize = '14px';
+        btn.style.whiteSpace = 'nowrap';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          location.href = url;
+        }, true);
+        if (menu) { menu.style.display = 'none'; menu.setAttribute('aria-hidden', 'true'); }
+      }
     function showMember(s) {
       if (nameEl) nameEl.textContent = s.name || 'GCLI member';
       if (roleEl) roleEl.textContent = (s.owner ? 'Owner · ' : '') + 'Active GCLI Member' +

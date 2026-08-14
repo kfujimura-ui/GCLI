@@ -405,7 +405,7 @@
       btn.textContent = 'Sign in';
       eachLink(function (a) {
         if (a.getAttribute('href') === '#top') a.textContent = 'Sign in';
-        a.setAttribute('href', API + '/cf_portal/');
+                a.setAttribute('href', API + '/signin/?next=' + encodeURIComponent(location.href));
       });
     }
     function showMember(s) {

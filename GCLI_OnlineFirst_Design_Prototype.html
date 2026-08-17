@@ -108,7 +108,7 @@
     .section-anchor { display: block; height: 1px; }
 
     /* Every in-page destination clears the sticky header before its heading. */
-    #about-anchor, #journal, #news, #oisc-section, #oisc, #oise, #gcli, #conference, #membership {
+    #about-anchor, #journal, #news, #oisc-section, #oisc, #oise, #gcli, #conference, #membership, #contact {
       scroll-margin-top: var(--sticky-anchor-offset);
     }
 
@@ -164,6 +164,16 @@
     .news-link { justify-self: end; color: var(--teal-800); font-size: 15px; font-weight: 800; text-decoration: none; }
     .news-link::after { margin-left: 7px; content: "→"; }
 
+    .contact { background: var(--sky); }
+    .contact-layout { display: grid; grid-template-columns: minmax(0, .82fr) minmax(320px, 1fr); gap: 58px; align-items: start; }
+    .contact-copy p { color: var(--muted); font-size: 18px; }
+    .contact-form { padding: 27px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); }
+    .contact-form label { display: block; margin: 13px 0 5px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 2px; background: #fff; color: var(--ink); font: inherit; }
+    .contact-form textarea { min-height: 112px; resize: vertical; }
+    .contact-form button { width: 100%; margin-top: 18px; border: 0; border-radius: 3px; }
+    .contact-status { min-height: 20px; margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+
     footer { padding: 44px 0 28px; background: #112b33; color: #dfe8e7; }
     .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; padding-bottom: 38px; }
     .footer-grid strong { display: block; margin-bottom: 10px; color: var(--white); font-size: 15px; letter-spacing: .05em; }
@@ -198,7 +208,7 @@
       .membership-link { display: inline-flex; min-height: 36px; align-items: center; padding: 8px 10px; font-size: 13px; }
       .primary-nav { grid-column: 1 / -1; grid-row: 3; gap: 17px; }
       .primary-nav a { font-size: 14px; }
-      .online-grid, .section-head, .now-grid, .membership-layout, .footer-grid { grid-template-columns: 1fr; }
+      .online-grid, .section-head, .now-grid, .membership-layout, .contact-layout, .footer-grid { grid-template-columns: 1fr; }
       .online-item { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .online-item:last-child { border-bottom: 0; }
       .section-head { gap: 21px; margin-bottom: 34px; }
@@ -283,7 +293,7 @@
     <section class="news" id="news" aria-labelledby="news-title">
       <div class="wrap">
         <div class="section-head"><div><p class="kicker">GCLI News</p><h2 id="news-title">Updates from the GCLI community.</h2></div><p>Current announcements from OISC, OISE, and the GCLI professional community.</p></div>
-        <div class="news-list">
+        <div class="news-list" id="news-list">
           <article class="news-item"><span class="news-meta oisc">Demo / OISC</span><div><h3>OISC participation information</h3><p>Sample announcement for the next Online International Student Conference cycle.</p></div><a class="news-link" href="#oisc">Read update</a></article>
           <article class="news-item"><span class="news-meta oise">Demo / OISE</span><div><h3>OISE partner matching</h3><p>Sample announcement for educators preparing a Virtual Exchange or COIL project.</p></div><a class="news-link" href="#oise">Read update</a></article>
           <article class="news-item"><span class="news-meta gcli">Demo / GCLI</span><div><h3>GCLI Professional Conference</h3><p>Sample announcement for a future Call for Proposals, registration, or programme update.</p></div><a class="news-link" href="#gcli">Read update</a></article>
@@ -312,6 +322,33 @@
         <div><p>Membership connects the platform, professional community, and programme access. It is the starting point for a shared GCLI profile, OISE participation, OISC Faculty Advisor access, and future conference and journal opportunities.</p><a class="button coral" href="#membership">Become a Member</a></div>
       </div>
     </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-layout">
+        <div class="contact-copy"><p class="kicker">Contact</p><h2>Get in touch with GCLI.</h2><p>For membership questions, OISC or OISE participation, research collaboration, and general inquiries, send a short message.</p></div>
+        <form class="contact-form" id="contact-form" data-source="GCLI">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" required>
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required>
+          <label for="contact-affiliation">Affiliation</label>
+          <input id="contact-affiliation" name="affiliation" type="text">
+          <label for="contact-topic">Inquiry type</label>
+          <select id="contact-topic" name="topic">
+            <option>General Inquiry</option>
+            <option>Membership</option>
+            <option>OISC</option>
+            <option>OISE</option>
+            <option>Research Collaboration</option>
+          </select>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" required></textarea>
+          <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+          <button class="button coral" type="submit">Send Message</button>
+          <p class="contact-status" id="contact-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -319,7 +356,7 @@
       <div class="footer-brand"><strong>GCLI</strong><p>Global Collaborative Learning Initiative</p><span>Active learning across borders, online.</span></div>
       <div><strong>Learning</strong><a href="https://kfujimura-ui.github.io/oisc/">Online International Student Conference (OISC)</a><a href="https://portal.gcli.site/oise/">Online International Student Exchange (OISE)</a></div>
       <div><strong>Community</strong><a href="#gcli">GCLI Professional Community</a><a href="#news">GCLI News</a><a href="#membership">Membership</a><a href="#top">My GCLI</a></div>
-      <div><strong>Organisation</strong><a href="#about-anchor">About GCLI</a><a href="#top">Governance</a><a href="#top">Contact</a><a href="#top">Privacy</a></div>
+      <div><strong>Organisation</strong><a href="#about-anchor">About GCLI</a><a href="#top">Governance</a><a href="#contact">Contact</a><a href="#top">Privacy</a></div>
     </div>
     <div class="wrap copyright">Copyright &copy; 2026 Global Collaborative Learning Initiative. All rights reserved. Visual design prototype.</div>
   </footer>
@@ -444,5 +481,63 @@
       .catch(showGuest);
   })();
   </script>
-  </body>
-  </html>
+  <script>
+  (function () {
+    var newsList = document.getElementById('news-list');
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    function metaClass(tags) {
+      var t = String(tags || '').toLowerCase();
+      if (t.indexOf('oise') >= 0) return 'oise';
+      if (t.indexOf('gcli') >= 0) return 'gcli';
+      return 'oisc';
+    }
+    if (newsList) {
+      fetch('https://portal.gcli.site/api/news?limit=3')
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          var posts = (res && res.posts) || [];
+          if (!posts.length) return;
+          newsList.innerHTML = posts.map(function (p) {
+            var tag = String(p.tags || 'GCLI').split(',')[0].trim() || 'GCLI';
+            var url = 'https://portal.gcli.site/news/?slug=' + encodeURIComponent(p.slug);
+            return '<article class="news-item"><span class="news-meta ' + metaClass(p.tags) + '">' + esc(tag) + '</span><div><h3>' +
+              esc(p.title) + '</h3><p>' + esc(p.excerpt || '') + '</p></div><a class="news-link" href="' + url + '">Read post</a></article>';
+          }).join('');
+        })
+        .catch(function () {});
+    }
+
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var status = document.getElementById('contact-status');
+        var button = contactForm.querySelector('button[type="submit"]');
+        var data = Object.fromEntries(new FormData(contactForm).entries());
+        data.source = contactForm.dataset.source || 'GCLI';
+        status.textContent = 'Sending...';
+        button.disabled = true;
+        fetch('https://portal.gcli.site/api/contact', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) {
+          return r.json().then(function (out) { if (!r.ok || !out.ok) throw new Error(out.error || 'send-failed'); });
+        }).then(function () {
+          contactForm.reset();
+          status.textContent = 'Message sent. Thank you.';
+        }).catch(function () {
+          status.textContent = 'Could not send the message. Please try again or email the administrator.';
+        }).finally(function () {
+          button.disabled = false;
+        });
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

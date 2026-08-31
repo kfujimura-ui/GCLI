@@ -127,6 +127,7 @@
     #about-anchor, #journal, #news, #student-collaboration, #oisc-section, #oisc, #oise, #gcli, #conference, #membership, #contact {
       scroll-margin-top: var(--sticky-anchor-offset);
     }
+    #membership { scroll-margin-top: calc(var(--sticky-anchor-offset) - 48px); }
 
     section { padding: 96px 0; }
     .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .7fr); gap: 70px; align-items: end; margin-bottom: 50px; }
@@ -165,7 +166,7 @@
     .now-list span { font-size: 16px; font-weight: 650; }
 
     .membership { color: var(--white); background: var(--indigo); }
-    .membership-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: end; }
+    .membership-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: start; }
     .membership h2 { margin-bottom: 0; font-size: clamp(36px, 4.6vw, 62px); line-height: 1.02; }
     .membership p { color: #d9e0f0; font-size: 18px; }
     .membership .button { margin-top: 4px; }

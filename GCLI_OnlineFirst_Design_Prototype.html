@@ -122,7 +122,7 @@
     .section-anchor { display: block; height: 1px; }
 
     /* Every in-page destination clears the sticky header before its heading. */
-    #about-anchor, #journal, #news, #oisc-section, #oisc, #oise, #gcli, #conference, #membership, #contact {
+    #about-anchor, #journal, #news, #student-collaboration, #oisc-section, #oisc, #oise, #gcli, #conference, #membership, #contact {
       scroll-margin-top: var(--sticky-anchor-offset);
     }
 
@@ -136,6 +136,7 @@
     .programme-group-title p { max-width: 570px; margin: 0; color: var(--muted); font-size: 17px; }
     .student-programmes { padding: 54px 55px 24px; border-top: 5px solid var(--teal-800); background: var(--sky); }
     .student-programmes .programme-group-title h3 { color: var(--teal-950); }
+    .student-programmes .student-programmes-tagline { margin-top: 9px; color: var(--teal-800); font-size: 14px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
     .student-programmes .programme-row { border-color: #bdd1d4; }
     .student-programmes .programme-row:last-child { border-bottom: 1px solid #bdd1d4; }
     .programme-row { display: grid; grid-template-columns: 140px minmax(0, 1fr) minmax(180px, .38fr); gap: 28px; align-items: start; padding: 29px 0; border-top: 1px solid var(--line); }
@@ -283,7 +284,7 @@
     <section class="hero" aria-label="GCLI announcements" aria-roledescription="carousel">
       <div class="hero-track" id="hero-track" style="transform: translateX(0);">
       <article class="hero-slide is-active" data-slide="0" aria-hidden="false">
-        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">Global Collaborative Learning Initiative</p><h1>Active Learning Across Borders, Online.</h1><p>GCLI gives students and educators a place to investigate, create, present, discuss, and reflect with peers in other parts of the world.</p><div class="button-row"><a class="button coral" href="#oisc">Discover OISC</a><a class="button secondary" href="https://oise.gcli.site/">Visit OISE</a></div></div></div>
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">Global Collaborative Learning Initiative</p><h1>Active Learning Across Borders, Online.</h1><p>GCLI gives students and educators a place to investigate, create, present, discuss, and reflect with peers in other parts of the world.</p><div class="button-row"><a class="button coral" href="#student-collaboration">Learn More</a></div></div></div>
         <div class="hero-visual" role="img" aria-label="Students and educators collaborating online"><div class="visual-note"><strong>Online by design</strong><span>Collaboration that works across distance, academic calendars, and time zones.</span></div></div>
       </article>
       <article class="hero-slide oisc-slide" data-slide="1" aria-hidden="true">
@@ -329,8 +330,9 @@
     <section class="programmes" aria-labelledby="programme-title">
       <div class="wrap">
         <div class="section-head"><div><p class="kicker">One initiative, two layers of work</p><h2 id="programme-title">Online international learning, connected to a professional community.</h2></div><p>GCLI brings students into international collaboration through OISC and OISE, then supports the field through professional exchange and research.</p></div>
+        <span class="section-anchor" id="student-collaboration" aria-hidden="true"></span>
         <div class="student-programmes" id="oisc-section">
-          <div class="programme-group-title"><h3>For Student Collaboration</h3><p>Two distinct online pathways where students learn with international peers through purposeful exchange.</p></div>
+          <div class="programme-group-title"><div><h3>For Student Collaboration</h3><p class="student-programmes-tagline">Active Learning Across Borders, Online.</p></div><p>Two distinct online pathways where students learn with international peers through purposeful exchange.</p></div>
           <article class="programme-row" id="oisc"><span class="programme-tag">01 / LEARNING PATHWAY</span><div><h3>OISC</h3><p>Online International Student Conference brings classes into a shared online experience where students prepare, present, discuss, and learn from one another across borders.</p></div><a class="programme-link" href="https://kfujimura-ui.github.io/oisc/">Visit OISC</a></article>
           <article class="programme-row" id="oise"><span class="programme-tag">02 / LEARNING PATHWAY</span><div><h3>OISE</h3><p>Online International Student Exchange creates student collaboration through Virtual Exchange and COIL. It supports educators in finding compatible partner classrooms by considering calendars, duration, time zones, class size, CEFR range, and learning goals from the start.</p></div><a class="programme-link" href="https://oise.gcli.site/">Visit OISE</a></article>
         </div>

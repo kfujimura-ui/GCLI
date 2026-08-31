@@ -29,6 +29,8 @@ jobs:
           cp -R Images _site/Images
           mkdir -p _site/board
           cp board/index.html _site/board/index.html
+          mkdir -p _site/membership
+          cp membership/index.html _site/membership/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -91,6 +91,8 @@
     .button { display: inline-flex; min-height: 49px; align-items: center; justify-content: center; padding: 11px 18px; border: 1px solid var(--white); border-radius: 3px; background: var(--white); color: var(--teal-950); font-size: 15px; font-weight: 800; text-decoration: none; }
     .button.secondary { border-color: #d9e7f5; background: #d9e7f5; color: var(--indigo); }
     .button.coral { border-color: var(--coral); background: var(--coral); color: var(--white); }
+    .button.disabled { border-color: #8da2a9; background: #8da2a9; color: #e9f0ef; cursor: not-allowed; }
+    .button.disabled:hover { border-color: #8da2a9; background: #8da2a9; color: #e9f0ef; }
     .button:hover, .button:focus-visible { background: var(--coral-dark); border-color: var(--coral-dark); color: var(--white); }
     .button.secondary:hover, .button.secondary:focus-visible { border-color: #b8cde4; background: #b8cde4; color: var(--indigo); }
     .hero-visual { position: relative; min-height: 360px; overflow: hidden; background: var(--indigo) url("Images/hero_general_meeting.jpg") center / cover no-repeat; }
@@ -288,11 +290,11 @@
         <div class="hero-visual" role="img" aria-label="Students and educators collaborating online"><div class="visual-note"><strong>Online by design</strong><span>Collaboration that works across distance, academic calendars, and time zones.</span></div></div>
       </article>
       <article class="hero-slide oisc-slide" data-slide="1" aria-hidden="true">
-        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">OISC Application</p><h1>Bring your class to the next OISC.</h1><p>Application information for the Online International Student Conference can appear here when the next participation cycle opens.</p><div class="button-row"><a class="button coral" href="#oisc">OISC Application Information</a><a class="button secondary" href="#oisc">About OISC</a></div></div></div>
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">OISC Application</p><h1>Bring your class to the next OISC.</h1><p>Application information for the Online International Student Conference can appear here when the next participation cycle opens.</p><div class="button-row"><a class="button coral" href="https://kfujimura-ui.github.io/oisc/">OISC Official Website</a></div></div></div>
         <div class="hero-visual" role="img" aria-label="Online International Student Conference"><div class="visual-note"><strong>OISC</strong><span>A shared online conference experience for student voices and global perspectives.</span></div></div>
       </article>
       <article class="hero-slide conference-slide" data-slide="2" aria-hidden="true">
-        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">GCLI Professional Conference</p><h1>Meet in person. Move the field forward.</h1><p class="conference-date"><strong>Date and venue: TBA</strong><span>Further information will be announced by GCLI.</span></p><p>A future in-person conference for educators and researchers working in online international collaborative learning.</p><div class="button-row"><a class="button coral" href="#gcli">Submit a Proposal</a><a class="button secondary" href="#gcli">Conference Information</a></div></div></div>
+        <div class="hero-copy"><div class="hero-copy-inner"><p class="kicker">GCLI Professional Conference</p><h1>Meet in person. Move the field forward.</h1><p class="conference-date"><strong>Date and venue: TBA</strong><span>Further information will be announced by GCLI.</span></p><p>A future in-person conference for educators and researchers working in online international collaborative learning.</p><div class="button-row"><span class="button disabled" aria-disabled="true">Submit a Proposal</span><span class="button disabled" aria-disabled="true">Conference Information</span></div></div></div>
         <div class="hero-visual" role="img" aria-label="GCLI Professional Conference"><div class="visual-note"><strong>GCLI Professional Conference</strong><span>In-person exchange for the people who design and study global collaborative learning.</span></div></div>
       </article>
       </div>

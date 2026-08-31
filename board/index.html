@@ -9,11 +9,9 @@
   <meta property="og:title" content="GCLI Interim Board of Directors">
   <meta property="og:description" content="The founding governance team supporting GCLI, OISC, OISE, and related professional activities.">
   <meta property="og:url" content="https://gcli.site/board/">
-  <meta property="og:image" content="https://gcli.site/Images/hero_general_meeting.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GCLI Interim Board of Directors">
   <meta name="twitter:description" content="The founding governance team supporting GCLI, OISC, OISE, and related professional activities.">
-  <meta name="twitter:image" content="https://gcli.site/Images/hero_general_meeting.jpg">
   <link rel="canonical" href="https://gcli.site/board/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,11 +64,10 @@
     h1, h2 { font-family: Figtree, ui-sans-serif, system-ui, sans-serif; font-weight: 650; letter-spacing: 0; }
     h1 { margin-bottom: 22px; font-size: clamp(48px, 5.3vw, 76px); line-height: .99; }
     .hero-copy p:not(.kicker) { max-width: 560px; margin-bottom: 0; color: #d9e7e8; font-size: 20px; }
-    .hero-visual { position: relative; min-height: 360px; background: var(--indigo) url("../Images/hero_general_meeting.jpg") center / cover no-repeat; }
-    .hero-visual::after { position: absolute; inset: auto 0 0 0; height: 160px; content: ""; background: rgba(41, 66, 114, .88); }
-    .visual-note { position: absolute; z-index: 1; right: 8%; bottom: 29px; max-width: 320px; color: var(--white); }
-    .visual-note strong { display: block; margin-bottom: 4px; color: #f5ce91; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-    .visual-note span { font-size: 17px; font-weight: 650; }
+    .hero-visual { display: flex; min-height: 360px; align-items: end; padding: 52px; border-left: 1px solid rgba(255, 255, 255, .16); background: #f4efe7; color: var(--ink); }
+    .governance-panel { width: 100%; border-top: 5px solid var(--coral); }
+    .governance-panel strong { display: block; margin: 22px 0 11px; color: var(--indigo); font-size: 14px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .governance-panel span { display: block; max-width: 380px; color: var(--muted); font-size: 22px; font-weight: 650; line-height: 1.22; }
 
     section { padding: 86px 0; }
     .intro { border-bottom: 1px solid var(--line); background: var(--white); }
@@ -84,8 +81,13 @@
     .board-role { color: var(--indigo); font-size: 14px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
     .board-member h2 { margin: 0 0 9px; font-size: clamp(30px, 3.8vw, 48px); line-height: 1.05; }
     .board-member p { max-width: 660px; margin-bottom: 0; color: var(--muted); font-size: 18px; }
-    .affiliation { display: grid; gap: 7px; color: var(--teal-950); font-size: 15px; font-weight: 750; }
+    .affiliation { display: grid; gap: 7px; color: var(--indigo); font-size: 15px; font-weight: 750; }
     .affiliation span { color: var(--muted); font-size: 14px; font-weight: 650; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .profile-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 8px 12px; border: 1px solid var(--indigo); background: var(--indigo); color: var(--white); font-size: 13px; font-weight: 850; line-height: 1.1; text-decoration: none; }
+    .profile-button:hover, .profile-button:focus-visible { border-color: var(--coral-dark); background: var(--coral-dark); color: var(--white); }
+    .profile-button.personal { border-color: var(--coral); background: var(--coral); }
+    .profile-button.personal:hover, .profile-button.personal:focus-visible { border-color: var(--coral-dark); background: var(--coral-dark); }
     .board-member.featured { padding-top: 42px; }
     .board-member.featured .board-role { color: var(--coral-dark); }
 
@@ -161,8 +163,8 @@
             <p>The founding governance team supporting the Global Collaborative Learning Initiative as it develops OISC, OISE, and related professional activities.</p>
           </div>
         </div>
-        <div class="hero-visual" role="img" aria-label="GCLI general meeting">
-          <div class="visual-note"><strong>Interim structure</strong><span>Roles may be updated as GCLI moves from launch planning into regular governance.</span></div>
+        <div class="hero-visual" aria-label="Interim governance note">
+          <div class="governance-panel"><strong>Interim structure</strong><span>Roles may be updated as GCLI moves from launch planning into regular governance.</span></div>
         </div>
       </div>
     </section>
@@ -182,7 +184,7 @@
             <h2>Keiji Fujimura</h2>
             <p>Leads GCLI's overall direction and coordinates the development of its learning, research, and professional-community activities.</p>
           </div>
-          <div class="affiliation">Aichi Institute of Technology<span>Japan</span><a href="https://fujimurakeiji.com/en" target="_blank" rel="noopener">Personal Website</a></div>
+          <div class="affiliation">Aichi Institute of Technology<span>Japan</span><div class="profile-links"><a class="profile-button personal" href="https://fujimurakeiji.com/en" target="_blank" rel="noopener">Personal Website</a></div></div>
         </article>
 
         <article class="board-member">
@@ -209,7 +211,7 @@
             <h2>Gin Gin Gustine</h2>
             <p>Supports international research collaboration and the development of GCLI's educator network.</p>
           </div>
-          <div class="affiliation">Indonesia University of Education<span>Indonesia</span></div>
+          <div class="affiliation">Indonesia University of Education<span>Indonesia</span><div class="profile-links"><a class="profile-button" href="https://orcid.org/0000-0003-3206-3463" target="_blank" rel="noopener">ORCID</a></div></div>
         </article>
 
         <article class="board-member">
@@ -227,7 +229,7 @@
             <h2>Faliqul Jannah Firdausi</h2>
             <p>Connects GCLI governance with OISC operations and supports programme development from the OISC side.</p>
           </div>
-          <div class="affiliation">SMA Negeri 15 Bandung<span>Indonesia</span></div>
+          <div class="affiliation">SMA Negeri 15 Bandung<span>Indonesia</span><div class="profile-links"><a class="profile-button" href="https://www.researchgate.net/profile/Faliqul-Firdausi" target="_blank" rel="noopener">ResearchGate</a></div></div>
         </article>
       </div>
     </section>

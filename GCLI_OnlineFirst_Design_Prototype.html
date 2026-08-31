@@ -459,7 +459,9 @@
     function eachLink(fn) { [].forEach.call(menu.querySelectorAll('a'), fn); }
           function showGuest() {
         // ゲストのときはプルダウンを出さず、丸をそのまま「Sign in」ボタンにする
-        var url = API + '/signin/?next=' + encodeURIComponent(location.href);
+        // The public GCLI sign-in always returns to the page top. In-page
+        // anchors such as #membership are navigation state, not a sign-in destination.
+        var url = API + '/signin/?next=' + encodeURIComponent('https://gcli.site/');
         btn.textContent = 'Sign in';
         btn.setAttribute('aria-label', 'Sign in to GCLI');
         btn.setAttribute('title', 'Sign in to GCLI');

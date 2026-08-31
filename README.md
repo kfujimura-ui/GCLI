@@ -1,15 +1,15 @@
 # Global Collaborative Learning Initiative
 
-This repository contains the public visual design prototype for the Global Collaborative Learning Initiative (GCLI).
+This repository contains the public homepage for the Global Collaborative Learning Initiative (GCLI).
 
-Open `GCLI_OnlineFirst_Design_Prototype.html` in a modern web browser to view the prototype. The site is a static HTML prototype and does not yet include production membership, news, conference registration, payment, or social-media integrations.
+The site is published through GitHub Pages. Member and account services are provided separately through the GCLI platform.
 
 ## Included
 
-- GCLI public homepage prototype
+- GCLI public homepage
 - OISC and OISE pathway overview
 - GCLI research-community and conference presentation
-- Local image assets required by the prototype
+- Local image assets required by the site
 
 ## Copyright
 

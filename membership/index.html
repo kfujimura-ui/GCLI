@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GCLI Membership connects educators and researchers with OISC, OISE, and the GCLI professional community.">
+  <title>GCLI Membership | Global Collaborative Learning Initiative</title>
+  <link rel="icon" type="image/svg+xml" href="../Images/favicon-gcli.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <style>
+    :root { --teal:#155b63; --teal-deep:#103f4a; --indigo:#294272; --coral:#d6614f; --gold:#f0bd75; --paper:#fcfcfa; --sky:#e7f0f2; --sand:#f4efe7; --ink:#183039; --muted:#5d7177; --line:#d5e0df; --white:#fff; --content:min(1120px, calc(100% - 48px)); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.55 Figtree, ui-sans-serif, system-ui, sans-serif; }
+    a { color:inherit; }
+    .wrap { width:var(--content); margin:0 auto; }
+    .site-header { border-bottom:1px solid var(--line); background:var(--paper); }
+    .header-row { min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; color:var(--teal-deep); text-decoration:none; }
+    .brand-symbol { position:relative; width:58px; height:58px; border:5px solid var(--teal); border-radius:50%; }
+    .brand-symbol::before, .brand-symbol::after { position:absolute; content:""; background:var(--coral); }
+    .brand-symbol::before { width:13px; height:13px; right:-8px; top:-8px; border-radius:50%; }
+    .brand-symbol::after { width:5px; height:24px; right:6px; top:5px; transform:rotate(38deg); transform-origin:bottom; }
+    .brand-copy { display:grid; gap:2px; padding-left:12px; border-left:1px solid var(--line); }
+    .brand-copy strong { font-size:22px; letter-spacing:.08em; }
+    .brand-copy span { color:var(--muted); font-size:13px; font-weight:700; }
+    .home-link { color:var(--teal); font-size:15px; font-weight:800; text-decoration:none; }
+    .hero { padding:94px 0 86px; background:var(--indigo); color:var(--white); }
+    .eyebrow { margin:0 0 14px; color:var(--gold); font-size:14px; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1, h2, h3 { line-height:1.08; }
+    h1 { max-width:780px; margin-bottom:23px; font-size:clamp(45px, 6vw, 76px); }
+    .hero p:not(.eyebrow) { max-width:690px; margin-bottom:0; color:#d9e0f0; font-size:20px; }
+    section { padding:84px 0; }
+    .intro { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
+    .intro h2, .section-head h2 { margin-bottom:0; font-size:clamp(34px, 4.8vw, 56px); }
+    .intro p, .section-head p { color:var(--muted); font-size:18px; }
+    .benefits { border-top:1px solid var(--line); }
+    .benefit { display:grid; grid-template-columns:96px minmax(0, 1fr); gap:30px; padding:29px 0; border-bottom:1px solid var(--line); }
+    .benefit-number { color:var(--coral); font-size:15px; font-weight:850; letter-spacing:.08em; }
+    .benefit h3 { margin-bottom:8px; font-size:27px; }
+    .benefit p { max-width:700px; margin-bottom:0; color:var(--muted); }
+    .supporting { padding:72px 0; background:var(--sand); }
+    .supporting-layout { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
+    .supporting h2 { margin-bottom:0; color:var(--indigo); font-size:clamp(34px, 4.8vw, 56px); }
+    .supporting p { color:var(--muted); font-size:18px; }
+    .supporting-details { margin-top:26px; border-top:1px solid #d6cbb9; }
+    .supporting-details div { padding:16px 0; border-bottom:1px solid #d6cbb9; }
+    .supporting-details strong { display:block; margin-bottom:4px; color:var(--indigo); font-size:14px; letter-spacing:.05em; text-transform:uppercase; }
+    .application { background:var(--sky); }
+    .application-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:70px; align-items:start; }
+    .application-card { padding:32px; border:1px solid #b9cfce; background:var(--white); }
+    .application-card h2 { margin-bottom:15px; font-size:36px; }
+    .application-card p { color:var(--muted); }
+    .notice { margin:22px 0 0; padding:17px 18px; border-left:5px solid var(--coral); background:#fff4f0; color:#5a413c; font-size:15px; }
+    .notice strong { color:var(--coral); }
+    .steps { margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }
+    .steps li { display:grid; grid-template-columns:36px minmax(0, 1fr); gap:13px; padding:17px 0; border-bottom:1px solid var(--line); }
+    .steps b { color:var(--teal); }
+    .steps span { color:var(--muted); }
+    .form-note { padding:31px; background:var(--teal-deep); color:var(--white); }
+    .form-note h2 { margin-bottom:13px; font-size:34px; }
+    .form-note p { color:#d9e7e8; }
+    .application-link { display:inline-flex; margin-top:4px; padding:12px 17px; border:1px solid var(--gold); color:var(--white); font-size:15px; font-weight:850; text-decoration:none; }
+    .application-link:hover, .application-link:focus-visible { background:var(--gold); color:var(--ink); }
+    .faq { background:var(--sand); }
+    .faq-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:0 46px; border-top:1px solid #d6cbb9; }
+    .faq-item { padding:26px 0; border-bottom:1px solid #d6cbb9; }
+    .faq-item h3 { margin-bottom:9px; font-size:22px; }
+    .faq-item p { margin-bottom:0; color:var(--muted); }
+    footer { padding:36px 0; background:#112b33; color:#dfe8e7; }
+    footer p { margin:0; font-size:14px; }
+    footer a { color:#dfe8e7; font-weight:800; }
+    @media (max-width:760px) { :root { --content:min(100% - 34px, 1120px); } .header-row { min-height:92px; } .brand-symbol { width:48px; height:48px; border-width:4px; } .brand-copy span { display:none; } .intro, .supporting-layout, .application-grid, .faq-grid { grid-template-columns:1fr; gap:30px; } section { padding:64px 0; } .supporting { padding:64px 0; } .hero { padding:70px 0; } .benefit { grid-template-columns:1fr; gap:8px; } .application-card, .form-note { padding:24px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="../" aria-label="GCLI home"><span class="brand-symbol" aria-hidden="true"></span><span class="brand-copy"><strong>GCLI</strong><span>Global Collaborative Learning Initiative</span></span></a>
+      <a class="home-link" href="../">Back to GCLI</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">GCLI Membership</p>
+        <h1>One membership for global learning, online.</h1>
+        <p>GCLI Membership connects educators and researchers with the online learning platforms, professional community, and future opportunities that bring OISC, OISE, and collaborative learning research together.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap intro">
+        <h2>Membership is a shared point of access.</h2>
+        <div><p>Membership is designed for the people who create, facilitate, and study international collaborative learning. It supports one GCLI profile across future services rather than separate registrations for each programme.</p><p>Access to particular spaces depends on your role and current programme participation. For example, OISC Faculty Advisor access is available to eligible Faculty Advisors, while OISE Partner Finder is intended for approved GCLI account holders.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="eyebrow" style="color:var(--teal)">Regular Membership</p>
+        <h2 style="margin-bottom:28px; font-size:clamp(34px, 4.8vw, 56px)">Regular Membership Benefits</h2>
+        <div class="benefits">
+          <article class="benefit"><span class="benefit-number">01</span><div><h3>One GCLI profile</h3><p>Manage your name, affiliation, contact email, and membership status in one place as GCLI services develop.</p></div></article>
+          <article class="benefit"><span class="benefit-number">02</span><div><h3>OISE Partner Finder access</h3><p>Search, post, and respond to compatible Virtual Exchange and COIL opportunities with calendar, time-zone, class-size, CEFR, and learning-goal information.</p></div></article>
+          <article class="benefit"><span class="benefit-number">03</span><div><h3>OISC Faculty Advisor access</h3><p>Eligible Faculty Advisors can access relevant OISC information and programme resources without maintaining a separate OISC password.</p></div></article>
+          <article class="benefit"><span class="benefit-number">04</span><div><h3>Professional community opportunities</h3><p>Receive information about GCLI conferences, research forums, practice-based publication, and future journal activities.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="supporting">
+      <div class="wrap supporting-layout">
+        <div><p class="eyebrow" style="color:var(--coral)">Supporting Membership</p><h2>Support the initiative.</h2></div>
+        <div><p>Supporting Membership is a separate membership form for individuals and organisations that want to sustain GCLI's development, research community, and future activities. In recognition of that contribution, GCLI will acknowledge Supporting Members through a linked banner on the GCLI website and, where appropriate, at GCLI conferences and events. Supporting Members may also have opportunities to participate in Professional Community meetings in that capacity. Supporting Membership is not designed as a route to programme-management access.</p><div class="supporting-details"><div><strong>Purpose</strong><span>Support the development of global collaborative learning and the GCLI community.</span></div><div><strong>Recognition</strong><span>A linked acknowledgement banner on the GCLI website and, where appropriate, at GCLI conferences and events.</span></div><div><strong>Participation</strong><span>Opportunities to participate in Professional Community meetings as a Supporting Member.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC Faculty Advisor access are not automatically included.</span></div><div><strong>Contribution</strong><span>Any contribution amount, recognition arrangements, and renewal terms are TBA and will be announced before they take effect.</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="application" id="application">
+      <div class="wrap application-grid">
+        <div class="application-card">
+          <p class="eyebrow" style="color:var(--coral)">Application</p>
+          <h2>Apply through Google Forms.</h2>
+          <p>Google Forms is the initial application route because it gives the GCLI team a manageable record of applications and a clear review workflow. A GCLI account is created only after the application has been reviewed.</p>
+          <ol class="steps"><li><b>1</b><span>Submit your membership application through the official Google Form.</span></li><li><b>2</b><span>Receive a copy of your response by email and keep it for your records.</span></li><li><b>3</b><span>GCLI reviews the application and confirms the appropriate role and access.</span></li><li><b>4</b><span>Receive instructions to set your password and access the relevant GCLI spaces.</span></li></ol>
+          <p class="notice"><strong>Membership fee: TBA.</strong> No fee is requested through the initial application. GCLI may introduce a membership fee in the future; any amount, eligibility criteria, renewal schedule, and payment process will be announced before a fee takes effect.</p>
+        </div>
+        <aside class="form-note">
+          <p class="eyebrow">Application Form</p>
+          <h2>Apply for Membership</h2>
+          <p>Submit your application through the official Google Form. You will receive a copy of your response by email.</p>
+          <p>GCLI aims to contact applicants within approximately one week. If you have not received a response after that time, please contact us through the GCLI contact page.</p>
+          <a class="application-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdMIaPGo9i5XWeQv_zz6-ikRW0gy9ZIAL-JzCh_ZDS00sWxOQ/viewform?usp=publish-editor" target="_blank" rel="noopener">Apply for Membership</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="wrap">
+        <p class="eyebrow" style="color:var(--teal)">Before You Apply</p>
+        <div class="faq-grid">
+          <article class="faq-item"><h3>Who can apply?</h3><p>Educators, researchers, Faculty Advisors, Supporting Members, and others who contribute to GCLI activities or the wider online collaborative learning community.</p></article>
+          <article class="faq-item"><h3>Does membership automatically grant every access right?</h3><p>No. Programme access is assigned according to your role, such as an approved OISE participant or an eligible OISC Faculty Advisor.</p></article>
+          <article class="faq-item"><h3>Will GCLI charge a fee now?</h3><p>No fee is requested in this initial application. Future membership fees remain TBA and will be announced in advance.</p></article>
+          <article class="faq-item"><h3>What is Supporting Membership?</h3><p>Supporting Membership is for individuals or organisations that want to support GCLI's development without necessarily needing programme-management access. Details of recognition and any future contribution are TBA.</p></article>
+          <article class="faq-item"><h3>What information will the form collect?</h3><p>Basic professional contact and affiliation details, your intended GCLI activities, a brief description of your work when relevant for review, and your acknowledgement of the membership and privacy terms.</p></article>
+          <article class="faq-item"><h3>When will I hear from GCLI?</h3><p>GCLI aims to contact applicants within approximately one week. If no response arrives after that time, please use the GCLI contact page to follow up.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><p><strong>GCLI</strong> &middot; Global Collaborative Learning Initiative &middot; <a href="../">gcli.site</a></p></div></footer>
+</body>
+</html>

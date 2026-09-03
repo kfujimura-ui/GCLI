@@ -27,11 +27,14 @@ jobs:
           mkdir _site
           cp GCLI_OnlineFirst_Design_Prototype.html _site/index.html
           cp analytics.js _site/analytics.js
+          cp cookie-consent.js _site/cookie-consent.js
           cp -R Images _site/Images
           mkdir -p _site/board
           cp board/index.html _site/board/index.html
           mkdir -p _site/membership
           cp membership/index.html _site/membership/index.html
+          mkdir -p _site/privacy
+          cp privacy/index.html _site/privacy/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

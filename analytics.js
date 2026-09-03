@@ -2,6 +2,10 @@
 (function () {
   var config = window.__GA4_SITE_CONFIG__ || {};
   if (!config.measurementId) return;
+  var active = false;
+  function start() {
+    if (active) return;
+    active = true;
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   var loader = document.createElement('script');
@@ -45,4 +49,9 @@
     sentScroll = true;
     gtag('event', 'scroll_90', { site: config.site, page_type: pageType() });
   }, { passive: true });
+  }
+  if (window.GcliCookieConsent && window.GcliCookieConsent.analyticsAllowed()) start();
+  window.addEventListener('gcli:cookie-consent', function (event) {
+    if (event.detail && event.detail.analytics) start();
+  });
 }());

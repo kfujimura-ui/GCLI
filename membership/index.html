@@ -45,6 +45,13 @@
     .benefit-number { color:var(--coral); font-size:15px; font-weight:850; letter-spacing:.08em; }
     .benefit h3 { margin-bottom:8px; font-size:27px; }
     .benefit p { max-width:700px; margin-bottom:0; color:var(--muted); }
+    .student { padding:72px 0; background:#e8f2f0; }
+    .student-layout { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
+    .student h2 { margin-bottom:0; color:var(--indigo); font-size:clamp(34px, 4.8vw, 56px); }
+    .student p { color:var(--muted); font-size:18px; }
+    .student-details { margin-top:26px; border-top:1px solid #b9cfce; }
+    .student-details div { padding:16px 0; border-bottom:1px solid #b9cfce; }
+    .student-details strong { display:block; margin-bottom:4px; color:var(--indigo); font-size:14px; letter-spacing:.05em; text-transform:uppercase; }
     .supporting { padding:72px 0; background:var(--sand); }
     .supporting-layout { display:grid; grid-template-columns:.78fr 1.22fr; gap:70px; align-items:start; }
     .supporting h2 { margin-bottom:0; color:var(--indigo); font-size:clamp(34px, 4.8vw, 56px); }
@@ -85,7 +92,7 @@
     .footer-brand p { margin:0; color:#dfe8e7; font-size:15px; line-height:1.4; }
     .footer-brand span { color:#93b7b0; font-size:12px; font-weight:750; letter-spacing:.03em; }
     .copyright { padding-top:20px; border-top:1px solid #31505a; color:#91aaa6; font-size:12px; }
-    @media (max-width:760px) { :root { --content:min(100% - 34px, 1120px); } .header-row { min-height:92px; } .brand-symbol { width:48px; height:48px; border-width:4px; } .brand-copy span { display:none; } .intro, .supporting-layout, .application-grid, .faq-grid, .footer-grid { grid-template-columns:1fr; gap:30px; } section { padding:64px 0; } .supporting { padding:64px 0; } .hero { padding:70px 0; } .benefit { grid-template-columns:1fr; gap:8px; } .application-card, .form-note { padding:24px; } .footer-grid { gap:22px; } }
+    @media (max-width:760px) { :root { --content:min(100% - 34px, 1120px); } .header-row { min-height:92px; } .brand-symbol { width:48px; height:48px; border-width:4px; } .brand-copy span { display:none; } .intro, .student-layout, .supporting-layout, .application-grid, .faq-grid, .footer-grid { grid-template-columns:1fr; gap:30px; } section { padding:64px 0; } .student, .supporting { padding:64px 0; } .hero { padding:70px 0; } .benefit { grid-template-columns:1fr; gap:8px; } .application-card, .form-note { padding:24px; } .footer-grid { gap:22px; } }
   </style>
 </head>
 <body>
@@ -125,6 +132,13 @@
       </div>
     </section>
 
+    <section class="student">
+      <div class="wrap student-layout">
+        <div><p class="eyebrow membership-type">Student Membership</p><h2>Learn and connect across borders.</h2></div>
+        <div><p>Student Membership is for undergraduate and graduate students who are interested in global collaborative learning, Virtual Exchange, COIL, and the GCLI community. It provides a GCLI profile and a route to receive information about relevant learning and community opportunities.</p><div class="student-details"><div><strong>For</strong><span>Undergraduate and graduate students interested in online international collaboration.</span></div><div><strong>Community</strong><span>Information about GCLI learning, conference, and professional-community opportunities.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC programme access depend on the relevant role and programme arrangements; they are not automatically included.</span></div><div><strong>Fee</strong><span>No fee is requested through the initial application. Any future fee or renewal arrangement is TBA and will be announced in advance.</span></div></div></div>
+      </div>
+    </section>
+
     <section class="supporting">
       <div class="wrap supporting-layout">
         <div><p class="eyebrow membership-type">Supporting Membership</p><h2>Support the initiative.</h2></div>
@@ -155,10 +169,11 @@
       <div class="wrap">
         <p class="eyebrow" style="color:var(--teal)">Before You Apply</p>
         <div class="faq-grid">
-          <article class="faq-item"><h3>Who can apply?</h3><p>Educators, researchers, Faculty Advisors, Supporting Members, and others who contribute to GCLI activities or the wider online collaborative learning community.</p></article>
+          <article class="faq-item"><h3>Who can apply?</h3><p>Educators, researchers, Faculty Advisors, undergraduate and graduate students, Supporting Members, and others who contribute to GCLI activities or the wider online collaborative learning community.</p></article>
           <article class="faq-item"><h3>Does membership automatically grant every access right?</h3><p>No. Programme access is assigned according to your role, such as an approved OISE participant or an eligible OISC Faculty Advisor.</p></article>
           <article class="faq-item"><h3>Will GCLI charge a fee now?</h3><p>No fee is requested in this initial application. Future membership fees remain TBA and will be announced in advance.</p></article>
           <article class="faq-item"><h3>What is Supporting Membership?</h3><p>Supporting Membership is for individuals or organisations that want to support GCLI's development without necessarily needing programme-management access. Details of recognition and any future contribution are TBA.</p></article>
+          <article class="faq-item"><h3>What is Student Membership?</h3><p>Student Membership is for undergraduate and graduate students interested in global collaborative learning. Programme access remains dependent on the relevant role and participation arrangements.</p></article>
           <article class="faq-item"><h3>What information will the form collect?</h3><p>Basic professional contact and affiliation details, your intended GCLI activities, a brief description of your work when relevant for review, and your acknowledgement of the membership and privacy terms.</p></article>
           <article class="faq-item"><h3>When will I hear from GCLI?</h3><p>GCLI aims to contact applicants within approximately one week. If no response arrives after that time, please use the GCLI contact page to follow up.</p></article>
         </div>

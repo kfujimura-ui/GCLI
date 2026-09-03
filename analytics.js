@@ -50,8 +50,5 @@
     gtag('event', 'scroll_90', { site: config.site, page_type: pageType() });
   }, { passive: true });
   }
-  if (window.GcliCookieConsent && window.GcliCookieConsent.analyticsAllowed()) start();
-  window.addEventListener('gcli:cookie-consent', function (event) {
-    if (event.detail && event.detail.analytics) start();
-  });
+  start();
 }());

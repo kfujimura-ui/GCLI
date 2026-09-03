@@ -27,7 +27,6 @@ jobs:
           mkdir _site
           cp GCLI_OnlineFirst_Design_Prototype.html _site/index.html
           cp analytics.js _site/analytics.js
-          cp cookie-consent.js _site/cookie-consent.js
           cp -R Images _site/Images
           mkdir -p _site/board
           cp board/index.html _site/board/index.html

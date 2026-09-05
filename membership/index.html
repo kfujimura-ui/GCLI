@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GCLI Membership connects educators and researchers with OISC, OISE, and the GCLI professional community.">
   <title>GCLI Membership | Global Collaborative Learning Initiative</title>
-  <link rel="icon" type="image/svg+xml" href="../Images/favicon-gcli.svg">
+  <link rel="icon" type="image/svg+xml" href="../Images/logo-mark-gcli.svg">
   <script>window.__GA4_SITE_CONFIG__={measurementId:'G-44QKYC9XPT',site:'gcli',siteDomain:'gcli.site'};</script>
   <script src="../analytics.js?v=20260904a" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.55 Figtree, ui-sans-serif, system-ui, sans-serif; }
     a { color:inherit; }
     .wrap { width:var(--content); margin:0 auto; }
-    .site-header { border-bottom:1px solid var(--line); background:var(--paper); }
+    .site-header { border-bottom:1px solid var(--line); background:var(--sand); }
     .header-row { min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .brand { display:inline-flex; align-items:center; gap:12px; color:var(--teal-deep); text-decoration:none; }
     .brand-symbol { position:relative; width:58px; height:58px; border:5px solid var(--teal); border-radius:50%; }
@@ -41,6 +41,9 @@
     .intro p, .section-head p { color:var(--muted); font-size:18px; }
     .benefits { border-top:1px solid var(--line); }
     .membership-type { margin-bottom:14px; color:var(--coral); font-size:18px; }
+    .membership-summary { max-width:760px; margin:0 0 30px; color:var(--muted); font-size:18px; }
+    .membership-apply-button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; margin:0 0 30px; padding:11px 18px; border:1px solid var(--coral); background:var(--coral); color:var(--white); font-size:15px; font-weight:850; text-decoration:none; }
+    .membership-apply-button:hover, .membership-apply-button:focus-visible { border-color:#b94e3f; background:#b94e3f; }
     .benefit { display:grid; grid-template-columns:96px minmax(0, 1fr); gap:30px; padding:29px 0; border-bottom:1px solid var(--line); }
     .benefit-number { color:var(--coral); font-size:15px; font-weight:850; letter-spacing:.08em; }
     .benefit h3 { margin-bottom:8px; font-size:27px; }
@@ -75,6 +78,7 @@
     .form-note p { color:#d9e7e8; }
     .application-link { display:inline-flex; margin-top:4px; padding:12px 17px; border:1px solid var(--gold); color:var(--white); font-size:15px; font-weight:850; text-decoration:none; }
     .application-link:hover, .application-link:focus-visible { background:var(--gold); color:var(--ink); }
+    .membership-apply-button, .application-link { border-radius:0 !important; }
     .faq { background:var(--sand); }
     .faq-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:0 46px; border-top:1px solid #d6cbb9; }
     .faq-item { padding:26px 0; border-bottom:1px solid #d6cbb9; }
@@ -123,6 +127,8 @@
       <div class="wrap">
         <p class="eyebrow membership-type">Regular Membership</p>
         <h2 style="margin-bottom:28px; font-size:clamp(34px, 4.8vw, 56px)">Regular Membership Benefits</h2>
+        <p class="membership-summary">Regular Membership connects the platform, professional community, and programme access.</p>
+        <a class="membership-apply-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdMIaPGo9i5XWeQv_zz6-ikRW0gy9ZIAL-JzCh_ZDS00sWxOQ/viewform?usp=publish-editor" target="_blank" rel="noopener">Apply as a Regular Member</a>
         <div class="benefits">
           <article class="benefit"><span class="benefit-number">01</span><div><h3>One GCLI profile</h3><p>Manage your name, affiliation, contact email, and membership status in one place as GCLI services develop.</p></div></article>
           <article class="benefit"><span class="benefit-number">02</span><div><h3>OISE Partner Finder access</h3><p>Search, post, and respond to compatible Virtual Exchange and COIL opportunities with calendar, time-zone, class-size, CEFR, and learning-goal information.</p></div></article>
@@ -135,14 +141,14 @@
     <section class="student">
       <div class="wrap student-layout">
         <div><p class="eyebrow membership-type">Student Membership</p><h2>Learn and connect across borders.</h2></div>
-        <div><p>Student Membership is for undergraduate and graduate students who are interested in global collaborative learning, Virtual Exchange, COIL, and the GCLI community. It provides a GCLI profile and a route to receive information about relevant learning and community opportunities.</p><div class="student-details"><div><strong>For</strong><span>Undergraduate and graduate students interested in online international collaboration.</span></div><div><strong>Community</strong><span>Information about GCLI learning, conference, and professional-community opportunities.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC programme access depend on the relevant role and programme arrangements; they are not automatically included.</span></div><div><strong>Fee</strong><span>No fee is requested through the initial application. Any future fee or renewal arrangement is TBA and will be announced in advance.</span></div></div></div>
+        <div><p class="membership-summary">Student Membership gives undergraduate and graduate students a GCLI profile and a route into relevant learning and community opportunities; programme access remains role-dependent.</p><a class="membership-apply-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdMIaPGo9i5XWeQv_zz6-ikRW0gy9ZIAL-JzCh_ZDS00sWxOQ/viewform?usp=publish-editor" target="_blank" rel="noopener">Apply as a Student Member</a><div class="student-details"><div><strong>For</strong><span>Undergraduate and graduate students interested in online international collaboration.</span></div><div><strong>Community</strong><span>Information about GCLI learning, conference, and professional-community opportunities.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC programme access depend on the relevant role and programme arrangements; they are not automatically included.</span></div><div><strong>Fee</strong><span>No fee is requested through the initial application. Any future fee or renewal arrangement is TBA and will be announced in advance.</span></div></div></div>
       </div>
     </section>
 
     <section class="supporting">
       <div class="wrap supporting-layout">
         <div><p class="eyebrow membership-type">Supporting Membership</p><h2>Support the initiative.</h2></div>
-        <div><p>Supporting Membership is a separate membership form for individuals and organisations that want to sustain GCLI's development, research community, and future activities. In recognition of that contribution, GCLI will acknowledge Supporting Members through a linked banner on the GCLI website and, where appropriate, at GCLI conferences and events. Supporting Members may also have opportunities to participate in Professional Community meetings in that capacity. Supporting Membership is not designed as a route to programme-management access.</p><div class="supporting-details"><div><strong>Purpose</strong><span>Support the development of global collaborative learning and the GCLI community.</span></div><div><strong>Recognition</strong><span>A linked acknowledgement banner on the GCLI website and, where appropriate, at GCLI conferences and events.</span></div><div><strong>Participation</strong><span>Opportunities to participate in Professional Community meetings as a Supporting Member.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC Faculty Advisor access are not automatically included.</span></div><div><strong>Contribution</strong><span>Any contribution amount, recognition arrangements, and renewal terms are TBA and will be announced before they take effect.</span></div></div></div>
+        <div><p class="membership-summary">Supporting Members sustain GCLI's development and are recognised through linked website and event acknowledgements, with opportunities to participate in Professional Community meetings as Supporting Members. Supporting Membership does not by itself include programme-management access.</p><a class="membership-apply-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdMIaPGo9i5XWeQv_zz6-ikRW0gy9ZIAL-JzCh_ZDS00sWxOQ/viewform?usp=publish-editor" target="_blank" rel="noopener">Apply as a Supporting Member</a><div class="supporting-details"><div><strong>Purpose</strong><span>Support the development of global collaborative learning and the GCLI community.</span></div><div><strong>Recognition</strong><span>A linked acknowledgement banner on the GCLI website and, where appropriate, at GCLI conferences and events.</span></div><div><strong>Participation</strong><span>Opportunities to participate in Professional Community meetings as a Supporting Member.</span></div><div><strong>Access</strong><span>OISE Partner Finder and OISC Faculty Advisor access are not automatically included.</span></div><div><strong>Contribution</strong><span>Any contribution amount, recognition arrangements, and renewal terms are TBA and will be announced before they take effect.</span></div></div></div>
       </div>
     </section>
 

@@ -43,10 +43,15 @@ class HeaderMembershipParser(HTMLParser):
 
 
 def page_url(path: Path, root: Path) -> str:
-    relative = path.relative_to(root).with_suffix("")
-    if relative.name == "index":
-        relative = relative.parent
-    path_part = "/" + (str(relative).strip("/") + "/" if str(relative) else "")
+    relative = path.relative_to(root)
+    # The prototype source is copied to the public site root as index.html.
+    if relative.as_posix() == "GCLI_OnlineFirst_Design_Prototype.html":
+        path_part = "/"
+    else:
+        relative = relative.with_suffix("")
+        if relative.name == "index":
+            relative = relative.parent
+        path_part = "/" + (str(relative).strip("/") + "/" if str(relative) else "")
     return "https://gcli.site" + path_part
 
 
